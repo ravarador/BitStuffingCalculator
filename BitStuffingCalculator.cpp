@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <string.h>
 #include <iostream>
 
@@ -7,11 +8,9 @@ using namespace std;
 
 namespace bsc {
 	BitStuffingCalculator::BitStuffingCalculator() {
-		_bits = nullptr;
-		_flag = nullptr;
 	};
 
-	void BitStuffingCalculator::set(char* bits, char* flag) {
+	void BitStuffingCalculator::set(const char* bits, const char* flag) {
 		_bits = new char[strlen(bits) + 1];
 		_flag = new char[strlen(flag) + 1];
 
@@ -25,8 +24,8 @@ namespace bsc {
 			return;
 		}
 
-		_bits = bits;
-		_flag = flag;
+		strcpy(_bits, bits);
+		strcpy(_flag, flag);
 	};
 
 	void BitStuffingCalculator::setEmpty() {
@@ -34,19 +33,48 @@ namespace bsc {
 		_flag = nullptr;
 	};
 
-	char* getBitsBeforeStuffing() {
-		if (isEmpty) {
+	void BitStuffingCalculator::getBitsBeforeStuffing(char* c) {
+		if (isEmpty(_bits)) {
 			cout << "No bits found. " << endl;
 		}
 		else {
-			return _bits;
+			strcpy(c, _bits);
 		}
 	};
 
-	void getBitsAfterStuffing();
-	void getBitsAfterFraming();
+	void BitStuffingCalculator::getBitsAfterStuffing(char* c) {
+		char* stuffedBits = nullptr;
+		stuffedBits = new char[strlen(_bits) + 1];
 
-	bool isEmpty(char* c) {
+		if (isEmpty(_bits)) {
+			cout << "No bits found. " << endl;
+		}
+		else {
+			int c = 0;
+			for (int i = 0; i < strlen(_bits); i++) {
+				if (c == 5) {
+					stuffedBits[i] = 0;
+					--i;
+					c = 0;
+				}
+				else {
+					stuffedBits[i] = _bits[i];
+
+					if (_bits[i] == 1) {
+						c++;
+					}
+					else {
+						c = 0;
+					}
+				}
+			}
+		}
+	}
+	/*void getBitsAfterFraming() {
+
+	}*/
+
+	bool BitStuffingCalculator::isEmpty(char* c) {
 		if (c == nullptr)
 			return true;
 		return false;

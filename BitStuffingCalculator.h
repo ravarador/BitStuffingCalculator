@@ -13,9 +13,9 @@ namespace bsc {
 	public:
 		BitStuffingCalculator(); // Constructor
 
-		void set(char* bits, char* flag);
-		void getBitsBeforeStuffing();
-		void getBitsAfterStuffing();
-		void getBitsAfterFraming();
+		void set(const char* bits, const char* flag);
+		void getBitsBeforeStuffing(char* c);
+		void getBitsAfterStuffing(char* c);
+		//void getBitsAfterFraming();
 	};
 }

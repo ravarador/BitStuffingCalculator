@@ -8,6 +8,7 @@ namespace bsc {
 	private:
 		
 		void setEmpty();
+		bool isEmpty(char* c);
 
 	public:
 		BitStuffingCalculator(); // Constructor

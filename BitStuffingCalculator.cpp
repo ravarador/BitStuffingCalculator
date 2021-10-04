@@ -7,7 +7,8 @@ using namespace std;
 
 namespace bsc {
 	BitStuffingCalculator::BitStuffingCalculator() {
-
+		_bits = nullptr;
+		_flag = nullptr;
 	};
 
 	void BitStuffingCalculator::set(char* bits, char* flag) {
@@ -33,7 +34,21 @@ namespace bsc {
 		_flag = nullptr;
 	};
 
-	void getBitsBeforeStuffing();
+	char* getBitsBeforeStuffing() {
+		if (isEmpty) {
+			cout << "No bits found. " << endl;
+		}
+		else {
+			return _bits;
+		}
+	};
+
 	void getBitsAfterStuffing();
 	void getBitsAfterFraming();
+
+	bool isEmpty(char* c) {
+		if (c == nullptr)
+			return true;
+		return false;
+	}
 }

@@ -32,6 +32,6 @@ int main()
     bCalc.getBitsAfterFraming(bitsAfterFraming);
 
     cout << "Before Stuffing: " << bitsBeforeStuffing << endl;
-    cout << "After Stuffing: " << bitsAfterStuffing << endl;
-    cout << "After Framing: " << bitsAfterFraming << endl;
+    cout << "After Stuffing:  " << bitsAfterStuffing << endl;
+    cout << "After Framing:   " << bitsAfterFraming << endl;
 }

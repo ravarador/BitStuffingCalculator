@@ -12,6 +12,7 @@ int main()
 {
     const char* bits = "011111101111110";
     const char* flag = "01111110";
+
     int bitsSize = strlen(bits) + 1;
     int flagSize = strlen(flag) + 1;
 
@@ -21,6 +22,7 @@ int main()
     char* bitsBeforeStuffing = nullptr;
     char* bitsAfterStuffing = nullptr;
     char* bitsAfterFraming = nullptr;
+
     bitsBeforeStuffing = new char[bitsSize];
     bitsAfterStuffing = new char[bitsSize];
     bitsAfterFraming = new char[bitsSize + (flagSize * 2)];

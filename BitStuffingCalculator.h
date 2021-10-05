@@ -3,7 +3,9 @@
 namespace bsc {
 	class BitStuffingCalculator {
 		char* _bits;
+		int _bitSize;
 		char* _flag;
+		int _flagSize;
 
 	private:
 		
@@ -16,6 +18,6 @@ namespace bsc {
 		void set(const char* bits, const char* flag);
 		void getBitsBeforeStuffing(char* c);
 		void getBitsAfterStuffing(char* c);
-		//void getBitsAfterFraming();
+		void getBitsAfterFraming(char* c);
 	};
 }

@@ -10,13 +10,26 @@ using namespace bsc;
 
 int main()
 {
+    const char* bits = "011111101111110";
+    const char* flag = "01111110";
+    int bitsSize = strlen(bits) + 1;
+    int flagSize = strlen(flag) + 1;
+
     BitStuffingCalculator bCalc;
-    bCalc.set("011111101111110", "01111110");
+    bCalc.set(bits, flag);
 
     char* bitsBeforeStuffing = nullptr;
-    bitsBeforeStuffing = new char[20];
+    char* bitsAfterStuffing = nullptr;
+    char* bitsAfterFraming = nullptr;
+    bitsBeforeStuffing = new char[bitsSize];
+    bitsAfterStuffing = new char[bitsSize];
+    bitsAfterFraming = new char[bitsSize + (flagSize * 2)];
 
     bCalc.getBitsBeforeStuffing(bitsBeforeStuffing);
+    bCalc.getBitsAfterStuffing(bitsAfterStuffing);
+    bCalc.getBitsAfterFraming(bitsAfterFraming);
 
     cout << "Before Stuffing: " << bitsBeforeStuffing << endl;
+    cout << "After Stuffing: " << bitsAfterStuffing << endl;
+    cout << "After Framing: " << bitsAfterFraming << endl;
 }
